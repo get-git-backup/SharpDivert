@@ -64,10 +64,11 @@
     <Compile Include="DivertLayer.cs" />
     <Compile Include="DivertParameter.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="Helpers\IStructurePtr.cs" />
+    <Compile Include="Helpers\TcpHeader.cs" />
     <Compile Include="IHelpers.cs" />
     <Compile Include="IPacket.cs" />
     <Compile Include="MarshalEx.cs" />
-    <Compile Include="Network Headers\TcpHeader.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="PacketDirection.cs" />
     <Compile Include="SharpDivert.cs" />

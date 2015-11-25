@@ -7,9 +7,6 @@ namespace SharpDivert
 {
     public class Helper
     {
-        public bool ParsePacket(byte[] data)
-        {
-
-        }
+        
     }
 }
