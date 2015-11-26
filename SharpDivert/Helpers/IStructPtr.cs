@@ -8,7 +8,7 @@ namespace SharpDivert.Helpers
     /// <summary>
     /// Abstract header methods.
     /// </summary>
-    public interface IStructurePtr
+    public interface IStructPtr
     {
         bool IsValid();
         bool GetStructureHandle(bool oriHandle, out IntPtr handle);

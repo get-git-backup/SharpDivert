@@ -64,7 +64,7 @@
     <Compile Include="DivertLayer.cs" />
     <Compile Include="DivertParameter.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="Helpers\IStructurePtr.cs" />
+    <Compile Include="Helpers\IStructPtr.cs" />
     <Compile Include="Helpers\TcpHeader.cs" />
     <Compile Include="IHelpers.cs" />
     <Compile Include="IPacket.cs" />

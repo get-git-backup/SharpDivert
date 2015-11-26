@@ -104,27 +104,10 @@ namespace SharpDivert.Native
         public ushort DstPort;
         public uint SeqNum;
         public uint AckNum;
-
-        /// Reserved1 : 4
-        ///HdrLength : 4
-        ///Fin : 1
-        ///Syn : 1
-        ///Rst : 1
-        ///Psh : 1
-        ///Ack : 1
-        ///Urg : 1
-        ///Reserved2 : 2
         public uint bitvector1;
-
-        /// UINT16->unsigned short
         public ushort Window;
-
-        /// UINT16->unsigned short
         public ushort Checksum;
-
-        /// UINT16->unsigned short
         public ushort UrgPtr;
-
         public uint Reserved1
         {
             get
@@ -136,35 +119,28 @@ namespace SharpDivert.Native
                 this.bitvector1 = ((uint)((value | this.bitvector1)));
             }
         }
-
         public uint HdrLength
         {
             get
             {
-                return ((uint)(((this.bitvector1 & 240u)
-                            / 16)));
+                return ((uint)(((this.bitvector1 & 240u) / 16)));
             }
             set
             {
-                this.bitvector1 = ((uint)(((value * 16)
-                            | this.bitvector1)));
+                this.bitvector1 = ((uint)(((value * 16) | this.bitvector1)));
             }
         }
-
         public uint Fin
         {
             get
             {
-                return ((uint)(((this.bitvector1 & 256u)
-                            / 256)));
+                return ((uint)(((this.bitvector1 & 256u) / 256)));
             }
             set
             {
-                this.bitvector1 = ((uint)(((value * 256)
-                            | this.bitvector1)));
+                this.bitvector1 = ((uint)(((value * 256) | this.bitvector1)));
             }
         }
-
         public uint Syn
         {
             get
@@ -178,7 +154,6 @@ namespace SharpDivert.Native
                             | this.bitvector1)));
             }
         }
-
         public uint Rst
         {
             get
@@ -192,7 +167,6 @@ namespace SharpDivert.Native
                             | this.bitvector1)));
             }
         }
-
         public uint Psh
         {
             get
@@ -206,7 +180,6 @@ namespace SharpDivert.Native
                             | this.bitvector1)));
             }
         }
-
         public uint Ack
         {
             get
@@ -220,7 +193,6 @@ namespace SharpDivert.Native
                             | this.bitvector1)));
             }
         }
-
         public uint Urg
         {
             get
@@ -234,7 +206,6 @@ namespace SharpDivert.Native
                             | this.bitvector1)));
             }
         }
-
         public uint Reserved2
         {
             get
