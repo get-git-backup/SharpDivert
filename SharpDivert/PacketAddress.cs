@@ -9,6 +9,7 @@ namespace SharpDivert
 {
     public class PacketAddress : IStructPtr
     {
+        #region IStructPtr Implementation
         protected IntPtr _unmanagedStructPtr;
         protected WINDIVERT_ADDRESS _managedStruct;
 
@@ -25,6 +26,7 @@ namespace SharpDivert
             }
             return _unmanagedStructPtr;
         }
+        #endregion
 
         public uint InterfaceIndex
         {

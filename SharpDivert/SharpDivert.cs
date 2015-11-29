@@ -41,7 +41,6 @@ namespace SharpDivert
                         throw new Exception("Failed to open WinDivert safe handle. Cause is unknown. Win32 Error is " + lastWin32Error);
                 }
             }
-            
         }
 
         public bool Receive()
@@ -56,7 +55,7 @@ namespace SharpDivert
             Marshal.StructureToPtr(pAddress, pAddressPtr, true);
 
             //Read pointer
-            IntPtr readPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(int)));
+            IntPtr readPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(uint)));
 
             //Packet parsing
             IntPtr ipHdr = IntPtr.Zero;
@@ -141,6 +140,8 @@ namespace SharpDivert
                 Marshal.FreeHGlobal(readPtr);
             }
         }
+
+
 
         #region Dispose Method
         void IDisposable.Dispose()

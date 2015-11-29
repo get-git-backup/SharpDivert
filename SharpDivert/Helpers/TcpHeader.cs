@@ -10,6 +10,7 @@ namespace SharpDivert.Helpers
 {
     public class TcpHeader : IStructPtr
     {
+        #region IStructPtr Implementation
         protected IntPtr _unmanagedStructPtr;
         protected WINDIVERT_TCPHDR _managedStruct;
 
@@ -26,8 +27,8 @@ namespace SharpDivert.Helpers
             }
             return _unmanagedStructPtr;
         }
+        #endregion
 
-      
         public ushort SourcePort
         {
             get
@@ -166,7 +167,7 @@ namespace SharpDivert.Helpers
             {
                 if (IsValid())
                 {
-                    return (uint)_managedStruct.Fin;
+                    return _managedStruct.Fin;
                 }
                 else
                 {
