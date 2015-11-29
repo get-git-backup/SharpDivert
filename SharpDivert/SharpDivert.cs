@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SharpDivert.Native;
+using SharpDivert.InteropServices;
 using System.Runtime.InteropServices;
 
 namespace SharpDivert
@@ -11,13 +11,6 @@ namespace SharpDivert
     {
         DivertSafeHandle _divert_handle = null;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="layer"></param>
-        /// <param name="priority"></param>
-        /// <param name="flags"></param>
         public void Open(string filter, DivertLayer layer, short priority, DivertFlags flags)
         {
             if (String.IsNullOrWhiteSpace(filter))

@@ -8,7 +8,7 @@ namespace SharpDivert
     /// <summary>
     /// Specifies packet direction.
     /// </summary>
-    public enum PacketDirection
+    public enum PacketDirection : byte
     {
         Outbound = 0,
         Inbound = 1,

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SharpDivert.Native
+namespace SharpDivert.InteropServices
 {
     /// <summary>
     /// Contains Windows's error codes.

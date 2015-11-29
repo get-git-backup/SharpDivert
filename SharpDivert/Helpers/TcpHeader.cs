@@ -1,4 +1,4 @@
-﻿using SharpDivert.Native;
+﻿using SharpDivert.InteropServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +18,13 @@ namespace SharpDivert.Helpers
             return _unmanagedStructPtr != IntPtr.Zero;
         }
 
-        public bool GetStructureHandle(bool oriHandle, out IntPtr handle)
+        public IntPtr GetStructureHandle(bool oriValues)
         {
-            if (!oriHandle)
+            if (!oriValues)
             {
                 Marshal.StructureToPtr(_managedStruct, _unmanagedStructPtr, true);
             }
-            handle = _unmanagedStructPtr;
-            return true;
+            return _unmanagedStructPtr;
         }
 
       

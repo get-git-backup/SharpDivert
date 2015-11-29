@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
-using SharpDivert.Native;
 
-namespace SharpDivert
+
+namespace SharpDivert.InteropServices
 {
     /// <summary>
     /// Provides safe handle to WinDivert capture handle.

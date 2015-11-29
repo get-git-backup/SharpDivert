@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace SharpDivert.Native
+namespace SharpDivert.InteropServices
 {
     public partial class NativeConstants
     {

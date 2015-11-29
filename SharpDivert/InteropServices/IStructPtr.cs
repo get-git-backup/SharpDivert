@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SharpDivert.Helpers
+namespace SharpDivert.InteropServices
 {
     /// <summary>
-    /// Abstract header methods.
+    /// Abstract header methods..
     /// </summary>
     public interface IStructPtr
     {
         bool IsValid();
-        bool GetStructureHandle(bool oriHandle, out IntPtr handle);
+        IntPtr GetStructureHandle(bool oriValues);
     }
 }
