@@ -1,22 +1,22 @@
-﻿using System;
+﻿using SharpDivert.InteropServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using SharpDivert.InteropServices;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace SharpDivert.Helpers
 {
-    public class IcmpHeader : IStructPtr
+    public class IcmpV6Header  : IStructPtr
     {
         #region IStructPtr Implementation
         protected IntPtr _unmanagedStructPtr;
-        protected WINDIVERT_ICMPHDR _managedStruct;
+        protected WINDIVERT_ICMPV6HDR _managedStruct;
 
-        internal IcmpHeader(IntPtr structHandle)
+        internal IcmpV6Header(IntPtr structHandle)
         {
             _unmanagedStructPtr = structHandle;
-            _managedStruct = (WINDIVERT_ICMPHDR)Marshal.PtrToStructure(structHandle, typeof(WINDIVERT_ICMPHDR));
+            _managedStruct = (WINDIVERT_ICMPV6HDR)Marshal.PtrToStructure(structHandle, typeof(WINDIVERT_ICMPV6HDR));
         }
 
         public bool IsValid()
@@ -82,4 +82,5 @@ namespace SharpDivert.Helpers
             }
         }
     }
+    
 }
