@@ -12,23 +12,43 @@ namespace SharpDivert.Helpers
         #region IStructPtr Implementation
         protected IntPtr _unmanagedStructPtr;
         protected WINDIVERT_ICMPHDR _managedStruct;
+        protected IntPtr _unmanagedStructPtrV6;
+        protected WINDIVERT_ICMPV6HDR _managedStructV6;
 
         public bool IsValid()
         {
             return _unmanagedStructPtr != IntPtr.Zero;
         }
 
+        [Obsolete("Don't use this overload. Use the second overload instead.", true)]
         public IntPtr GetStructureHandle(bool oriValues)
         {
-            if (!oriValues)
+            throw new NotImplementedException();
+        }
+
+        public IntPtr GetStructureHandle(bool oriValues, bool icmpver6 = false)
+        {
+            if (!icmpver6)
             {
-                Marshal.StructureToPtr(_managedStruct, _unmanagedStructPtr, true);
+                if (!oriValues)
+                {
+                    Marshal.StructureToPtr(_managedStruct, _unmanagedStructPtr, true);
+                }
+                return _unmanagedStructPtr;
             }
-            return _unmanagedStructPtr;
+            else
+            {
+                if (!oriValues)
+                {
+                    Marshal.StructureToPtr(_managedStructV6, _unmanagedStructPtrV6, true);
+                }
+                return _unmanagedStructPtrV6;
+            }
         }
         #endregion
 
-        public byte Type
+        #region Icmp version 4.0
+        public byte IcmpType
         {
             get
             {
@@ -40,7 +60,7 @@ namespace SharpDivert.Helpers
             }
         }
 
-        public byte Code
+        public byte IcmpCode
         {
             get
             {
@@ -52,7 +72,7 @@ namespace SharpDivert.Helpers
             }
         }
 
-        public ushort Checksum
+        public ushort IcmpChecksum
         {
             get
             {
@@ -64,7 +84,7 @@ namespace SharpDivert.Helpers
             }
         }
 
-        public uint Body
+        public uint IcmpBody
         {
             get
             {
@@ -75,5 +95,56 @@ namespace SharpDivert.Helpers
                 _managedStruct.Body = value;
             }
         }
+        #endregion
+
+        #region Icmp version 6.0
+        public byte IcmpV6Type
+        {
+            get
+            {
+                return _managedStructV6.Type;
+            }
+            set
+            {
+                _managedStructV6.Type = value;
+            }
+        }
+
+        public byte IcmpV6Code
+        {
+            get
+            {
+                return _managedStructV6.Code;
+            }
+            set
+            {
+                _managedStructV6.Code = value;
+            }
+        }
+
+        public ushort IcmpV6Checksum
+        {
+            get
+            {
+                return _managedStructV6.Checksum;
+            }
+            set
+            {
+                _managedStructV6.Checksum = value;
+            }
+        }
+
+        public uint IcmpV6Body
+        {
+            get
+            {
+                return _managedStructV6.Body;
+            }
+            set
+            {
+                _managedStructV6.Body = value;
+            }
+        }
+        #endregion
     }
 }
