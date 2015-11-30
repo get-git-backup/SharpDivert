@@ -15,6 +15,15 @@ namespace SharpDivert.Helpers
         protected IntPtr _unmanagedStructPtrV6;
         protected WINDIVERT_ICMPV6HDR _managedStructV6;
 
+        internal IcmpHeader(IntPtr structHandle, IntPtr structHandleV6)
+        {
+            _unmanagedStructPtr = structHandle;
+            _managedStruct = (WINDIVERT_ICMPHDR)Marshal.PtrToStructure(structHandle, typeof(WINDIVERT_ICMPHDR));
+
+            _unmanagedStructPtrV6 = structHandleV6;
+            _managedStructV6 = (WINDIVERT_ICMPV6HDR)Marshal.PtrToStructure(structHandleV6, typeof(WINDIVERT_ICMPV6HDR));
+        }
+
         public bool IsValid()
         {
             return _unmanagedStructPtr != IntPtr.Zero;

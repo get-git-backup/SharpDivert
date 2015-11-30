@@ -14,6 +14,12 @@ namespace SharpDivert.Helpers
         protected IntPtr _unmanagedStructPtr;
         protected WINDIVERT_TCPHDR _managedStruct;
 
+        internal TcpHeader(IntPtr structHandle)
+        {
+            _unmanagedStructPtr = structHandle;
+            _managedStruct = (WINDIVERT_TCPHDR)Marshal.PtrToStructure(structHandle, typeof(WINDIVERT_TCPHDR));
+        }
+
         public bool IsValid()
         {
             return _unmanagedStructPtr != IntPtr.Zero;
